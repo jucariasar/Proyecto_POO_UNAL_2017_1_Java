@@ -28,5 +28,58 @@ public class HistorialPrestamo {
         this.fechaDevolucion=fechaDevolucion;
     }
 
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    public String getNomEmpleado() {
+        return nomEmpleado;
+    }
+
+    public void setNomEmpleado(String nomEmpleado) {
+        this.nomEmpleado = nomEmpleado;
+    }
+
+    public String getNomElemento() {
+        return nomElemento;
+    }
+
+    public void setNomElemento(String nomElemento) {
+        this.nomElemento = nomElemento;
+    }
+
+    public int getCodElemento() {
+        return codElemento;
+    }
+
+    public void setCodElemento(int codElemento) {
+        this.codElemento = codElemento;
+    }
+
+    public Date getFechaPrestamo() {
+        return fechaPrestamo;
+    }
+
+    public void setFechaPrestamo(Date fechaPrestamo) {
+        this.fechaPrestamo = fechaPrestamo;
+    }
+
+    public Date getFechaDevolucion() {
+        return fechaDevolucion;
+    }
+
+    public void setFechaDevolucion(Date fechaDevolucion) {
+        if (getFechaDevolucion()==null){
+            
+        }else{
+            this.fechaDevolucion = fechaDevolucion;
+
+        }
+    }
+
     
 }
