@@ -13,12 +13,10 @@ import java.util.*;
  */
 public class Empleado {
     
-    public static List<Empleado> empleados = new ArrayList<Empleado>() {
+    public static List<Empleado> empleados = new ArrayList<Empleado>() ;
         //{
         //    add(new Empleado(1,"hjk","dfghjkm","rtyui","sdfgy"));
-            
-        //}
-    };
+           
 
     private int ident = 0;
     private String nombre = "";

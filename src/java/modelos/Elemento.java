@@ -5,6 +5,7 @@
  */
 package modelos;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @author camilo
  */
 public class Elemento {
+
     private int codigo;
     private String nombre;
     private String ubicacion;
@@ -20,6 +22,7 @@ public class Elemento {
     private int contador = 0;
     private int valor;
     private String estadoActual;
+    // public static ArrayList<Elemento> ListaElementos = new ArrayList<Elemento>() ;    
 
     public Elemento(int codigo, String nombre, String ubicacion, int valor, String estadoActual) {
         this.codigo = codigo;
@@ -84,22 +87,54 @@ public class Elemento {
     }
 
     public void setEstadoActual(String estadoActual) {
-        this.estadoActual = estadoActual;
+        if (!estadoActual.equals("Disponible")
+                || !estadoActual.equals("Prestado")
+                || !estadoActual.equals("Reservado")) {
+            // enviar mensaje de error. 
+        } else {
+            this.estadoActual = estadoActual;
+        }
+
     }
-    
-    public String obtenerDireccion()
-    {
+
+    @Override
+    public String toString() {
+        return "Elemento{" + "codigo=" + codigo + ", nombre=" + nombre
+                + ", ubicacion=" + ubicacion + ", fechaPrestamo=" + fechaPrestamo
+                + ", contador=" + contador + ", valor=" + valor + ", estadoActual=" + estadoActual + '}';
+    }
+
+    // Devuelve String de atributos seleccionados, parecido a ToString
+    public String str_Inventario() {
+        return ("Nombre de elemento es: " + nombre
+                + ", Codigo Del Elemento: " + codigo + ", La Ubicación del Elemento es: " + ubicacion
+                + ", El estado actual del elemento es: " + estadoActual);
+    }
+
+    public String obtenerDireccion() {
         String dir = "http://localhost:8084/almacen/Busqueda?codigo=" + this.getCodigo();
-        
+
         return dir;
     }
-    
-    public static Elemento buscar_por_id(List<Elemento> elements, int id_a_buscar){
-        for(Elemento e: elements){
-            if(e.getCodigo() == id_a_buscar)
+
+    public static Elemento buscar_por_id(List<Elemento> elements, int id_a_buscar) {
+        for (Elemento e : elements) {
+            if (e.getCodigo() == id_a_buscar) {
                 return e;
+            }
         }
         return null;
     }
-    
+
+    // Devuelve String con la url completa para ver los detalles de un elemento con un id especifico.
+    public static boolean verificarReserva(ArrayList<Elemento> ListaElementos) {
+
+        for (Elemento element : ListaElementos) {
+            if (element.getEstadoActual().equals("Reservado")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
