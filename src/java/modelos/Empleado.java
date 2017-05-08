@@ -14,10 +14,12 @@ public class Empleado {
     private String email = "";
     private List<Elemento> elementos = new ArrayList<>();
 
-    public Empleado(int ident, String nombre, String apellido, String roll, String email) {
+    public Empleado(int ident, String nombre, String apellido, int numElementPres, 
+            String roll, String email) {
         setIdent(ident);
         setNombre(nombre);
         setApellido(apellido);
+        setNumElementPres(numElementPres);
         setRoll(roll);
         setEmail(email);
     }
@@ -107,7 +109,8 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" + "ident=" + ident + ", nombre=" + nombre + ", Apellido=" + apellido + ", numElementPres=" + numElementPres + ", roll=" + roll + ", email=" + email + '}';
+        return String.format("Nombre Completo: %s %s\nN° Identificacion: %d\nE-mail: %s\nRoll: %s",
+                getNombre(), getApellido(), getIdent(), getEmail(), getRoll());
     }
     
     
