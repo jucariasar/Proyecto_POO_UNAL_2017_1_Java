@@ -22,7 +22,7 @@ public class Elemento {
     private String ubicacion;
     private Date fechaPrestamo;
     private int contador = 0;
-    private int valor;
+    private float valor;
     private String estadoActual;
 
     public Elemento(int codigo, String nombre, String ubicacion, int valor, String estadoActual) {
