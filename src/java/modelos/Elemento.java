@@ -5,6 +5,8 @@
  */
 package modelos;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +24,6 @@ public class Elemento {
     private int contador = 0;
     private int valor;
     private String estadoActual;
-    // public static ArrayList<Elemento> ListaElementos = new ArrayList<Elemento>() ;    
 
     public Elemento(int codigo, String nombre, String ubicacion, int valor, String estadoActual) {
         this.codigo = codigo;
@@ -111,6 +112,7 @@ public class Elemento {
                 + ", El estado actual del elemento es: " + estadoActual);
     }
 
+    // Devuelve String con la url completa para ver los detalles de un elemento con un id especifico.
     public String obtenerDireccion() {
         String dir = "http://localhost:8084/almacen/Busqueda?codigo=" + this.getCodigo();
 
@@ -126,7 +128,7 @@ public class Elemento {
         return null;
     }
 
-    // Devuelve String con la url completa para ver los detalles de un elemento con un id especifico.
+    // Verifica la lista de elementos que estan reservados.
     public static boolean verificarReserva(ArrayList<Elemento> ListaElementos) {
 
         for (Elemento element : ListaElementos) {
@@ -135,6 +137,110 @@ public class Elemento {
             }
         }
         return false;
+    }
+
+    // Cancela los Elementos Reservados. 
+    public static void cancelarReserva(ArrayList<Elemento> ListaElementos) {
+
+        for (Elemento element : ListaElementos) {
+            if (element.getEstadoActual().equals("Reservado")) {
+                element.setEstadoActual("Disponible");
+            }
+        }
+
+    }
+
+    // Verificar que elementos estan prestados. 
+    public static boolean verificarPrestamo(ArrayList<Elemento> ListaElementos) {
+        for (Elemento element : ListaElementos) {
+            if (element.getEstadoActual().equals("Prestado")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Metodo que verifica que elementos estan disponibles
+    public static boolean verificarDisponibles(ArrayList<Elemento> ListaElementos) {
+        for (Elemento element : ListaElementos) {
+            if (element.getEstadoActual().equals("Disponible")) {
+            }
+            return true;
+        }
+        return false;
+    }
+
+    // Buscar por identificacion.
+    public static Elemento buscarElementoPorId(ArrayList<Elemento> ListaElementos, int cod) {
+        for (Elemento element : ListaElementos) {
+            if (element.getCodigo() == cod) {
+                return element;
+            }
+        }
+        return null;
+    }
+
+    // verifica que elementos estan disponibles en la lista 
+    public static String elemetosDisponibles(ArrayList<Elemento> ListaElementos) {
+
+        for (Elemento element : ListaElementos) {
+            if (element.getEstadoActual().equals("Disponible")) {
+                return element.str_Inventario();
+            }
+        }
+        return null;
+    }
+
+    // retorna el lsitado de los elementos 
+    public static String inventarioElementos(ArrayList<Elemento> ListaElementos) {
+        for (Elemento element : ListaElementos) {
+            return element.str_Inventario();
+        }
+        return null;
+    }
+ // 
+  
+     public static String elementosPrestados(ArrayList<Elemento> ListaElementos) {
+        int c = 0 ;
+         for (Elemento element : ListaElementos) {
+             if (element.getEstadoActual().equals("Prestado")){
+                 c++;
+                 return element.str_Inventario();
+             }              
+        }
+        if (c == 0){
+         return "No hay elementos prestados ";
+        }
+    return "";   
+    }
+
+
+
+
+
+
+
+// Gaurdad datos en un archivo de texto plano.
+    public static void guardarDatosEntxt(int m) {
+
+        try {
+            File Archivo = new File("elementos.txt");
+            FileWriter escribirTxt = new FileWriter(Archivo, true);
+
+            for (int i = 0; i < m; i++) {
+            }
+
+            //escribirTxt.write(str);
+            escribirTxt.close();
+        } catch (Exception e) {
+            System.out.println("Error al crear TXT");
+        }
+
+    }
+
+    // Metodo para prestar algun elemento que este disponible
+    public static void prestarElementos(ArrayList<Elemento> ListaElementos) {
+
     }
 
 }
