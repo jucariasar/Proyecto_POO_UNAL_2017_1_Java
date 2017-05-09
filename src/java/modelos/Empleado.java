@@ -4,15 +4,27 @@ import java.util.*;
 
 public class Empleado {
 
-    private int ident = 0;
-    private String nombre = "";
-    private String apellido = "";
-    private int numElementPres = 0;
-    private int numRestriccion = 0;
-    private String roll = "";
-    private int contador = 0;
-    private String email = "";
+    private int ident;
+    private String nombre;
+    private String apellido;
+    private int numElementPres;
+    private int numRestriccion;
+    private String roll;
+    private int contador;
+    private String email;
     private List<Elemento> elementos = new ArrayList<>();
+    
+    public Empleado()
+    {
+        this.ident = 0;
+        this.nombre = null;
+        this.apellido = null;
+        this.numElementPres = 0;
+        this.numRestriccion = 0;
+        this.roll = null;
+        this.contador = 0;
+        this.email = null;
+    }
 
     public Empleado(int ident, String nombre, String apellido, int numElementPres, 
             String roll, String email) {
@@ -222,13 +234,13 @@ public class Empleado {
         int elemPrest4 = 0;
         
         for(Empleado e : listaE){
-            if(e.getRoll().equals(RollEmpleado.tiposEmpleado.get("1")))
+            if(e.getRoll().equals(RollTipoArea.rollEmpleado.get("1")))
                 elemPrest1 = e.getContador() + elemPrest1;
-            else if(e.getRoll().equals(RollEmpleado.tiposEmpleado.get("2")))
+            else if(e.getRoll().equals(RollTipoArea.rollEmpleado.get("2")))
                 elemPrest2 = e.getContador() + elemPrest2;
-            else if(e.getRoll().equals(RollEmpleado.tiposEmpleado.get("3")))
+            else if(e.getRoll().equals(RollTipoArea.rollEmpleado.get("3")))
                 elemPrest3 = e.getContador() + elemPrest3;
-            else if(e.getRoll().equals(RollEmpleado.tiposEmpleado.get("4")))
+            else if(e.getRoll().equals(RollTipoArea.rollEmpleado.get("4")))
                 elemPrest4 = e.getContador() + elemPrest4;
         } 
         
@@ -236,22 +248,22 @@ public class Empleado {
         if (roll > 0) {
             if (roll == elemPrest1) {
                 System.out.printf("El roll que mas ha prestado elementos es: \n");
-                System.out.printf("\n%s >> N° veces que han prestado: %d", RollEmpleado.tiposEmpleado.get("1"),
+                System.out.printf("\n%s >> N° veces que han prestado: %d", RollTipoArea.rollEmpleado.get("1"),
                         elemPrest1);
             } 
             else if (roll == elemPrest2) {
                 System.out.printf("El roll que mas ha prestado elementos es: \n");
-                System.out.printf("\n%s >> N° veces que han prestado: %d", RollEmpleado.tiposEmpleado.get("2"),
+                System.out.printf("\n%s >> N° veces que han prestado: %d", RollTipoArea.rollEmpleado.get("2"),
                         elemPrest2);
             } 
             else if (roll == elemPrest3) {
                 System.out.printf("El roll que mas ha prestado elementos es: \n");
-                System.out.printf("\n%s >> N° veces que han prestado: %d", RollEmpleado.tiposEmpleado.get("3"),
+                System.out.printf("\n%s >> N° veces que han prestado: %d", RollTipoArea.rollEmpleado.get("3"),
                         elemPrest3);
             } 
             else if (roll == elemPrest4) {
                 System.out.printf("El roll que mas ha prestado elementos es: \n");
-                System.out.printf("\n%s >> N° veces que han prestado: %d", RollEmpleado.tiposEmpleado.get("4"),
+                System.out.printf("\n%s >> N° veces que han prestado: %d", RollTipoArea.rollEmpleado.get("4"),
                         elemPrest4);
             }
         } 

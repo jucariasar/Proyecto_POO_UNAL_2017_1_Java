@@ -3,9 +3,15 @@ package modelos;
 
 public class IngenieroTecnico extends Empleado{
     
-    public final int MAX_IT  = 4;
+    public static final int MAX_IT  = 4;
     
     String areaEncargada;
+    
+    public IngenieroTecnico()
+    {
+        super();
+        setArea(null);
+    }
     
     public IngenieroTecnico(int ident, String nombre, String apellido,
             int numElementPrest, String roll, String email, String area){

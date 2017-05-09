@@ -2,10 +2,16 @@ package modelos;
 
 public class Administrativo extends Empleado {
 
-    public final int MAX_AD  = 2;
+    public static final int MAX_AD  = 2;
 
     private int grado;
-
+   
+    public Administrativo()
+    {
+        super();
+        setGrado(0);
+    }
+    
     public Administrativo(int ident, String nombre, String apellido, int numElementPrest,
             String roll, String email, int grado) {
         super(ident, nombre, apellido, numElementPrest, roll, email);
