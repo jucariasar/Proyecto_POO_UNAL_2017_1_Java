@@ -160,13 +160,13 @@ public class Empleado {
         }
         if(emp != null)
         {
-            System.out.println("El empleado con mas elementos prestados es: ");
+            System.out.println(Mensaje.mensaje.get("empMasElementPrestados"));
             System.out.printf("\n %s %s >> N° elementos prestado: %s\n", emp.getNombre(),
                     emp.getApellido(), emp.getNumElementPres());
         }
         else
         {
-            System.out.printf("\nNingun empleado ha prestado elementos\n");
+            System.out.printf("\n %s\n", Mensaje.mensaje.get("noEmpConElementPrest"));
         }
         
     }
@@ -179,7 +179,7 @@ public class Empleado {
             double suma = 0;
             for (Elemento j : emp.getElementos())
             {
-                if (j.getEstadoActual() == "Prestado")
+                if (j.getEstadoActual().equals(RollTipoArea.estadoElemento.get("2")))
                 {
                     suma = j.getValor() + suma;
                 }
@@ -192,17 +192,17 @@ public class Empleado {
         }
         if(emp != null)
         {
-            System.out.printf("\n El empleado con mas Valor Prestado es: %s %s\n", emp.getNombre(),
+            System.out.printf("\n %s %s %s\n", Mensaje.mensaje.get("empMasValorPrestado"),emp.getNombre(),
                     emp.getApellido());
-            System.out.printf("\n El valor total prestado por el empleado actualmente es: %f", mayor);
+            System.out.printf("\n %s %f", Mensaje.mensaje.get("totalValorPrestado"), mayor);
         }
         if(emp == null)
-            System.out.printf("\n Aun no han sido prestado elementos con valor \n");
+            System.out.printf("\n %s\n", Mensaje.mensaje.get("noEmpConElementPrest"));
     }
     
     
     public static void listadoEmpleados(List<Empleado> listaE){
-        System.out.printf("\nLa base de datos actual de empleados es: \n");
+        System.out.printf("\n %s \n", Mensaje.mensaje.get("msjListaEmpleados"));
         for(Empleado emp : listaE)
             System.out.println(emp);
     }
@@ -219,12 +219,12 @@ public class Empleado {
             }
         }
         if(emp != null){
-            System.out.printf("\nEl empleado que mas ha prestado elementos es: \n");
+            System.out.printf("\n %s\n", Mensaje.mensaje.get("EmpMasHaPrestElement"));
             System.out.printf("\n%s %s >> N° veces que ha prestado: %d", emp.getNombre(),
                     emp.getApellido(), emp.getContador());
         }
         else
-            System.out.printf("\n Ningun elemento ha sido prestado\n");
+            System.out.printf("\n %s\n", Mensaje.mensaje.get("noElementPrest"));
     }
     
     public static void rollEstrella(List<Empleado> listaE){
@@ -247,28 +247,29 @@ public class Empleado {
         int roll = Math.max(elemPrest1, Math.max(elemPrest2, Math.max(elemPrest3, elemPrest4)));
         if (roll > 0) {
             if (roll == elemPrest1) {
-                System.out.printf("El roll que mas ha prestado elementos es: \n");
-                System.out.printf("\n%s >> N° veces que han prestado: %d", RollTipoArea.rollEmpleado.get("1"),
+                System.out.printf("%s \n", Mensaje.mensaje.get("msjRollEstrella"));
+                System.out.printf("\n%s >> %s %d", RollTipoArea.rollEmpleado.get("1"), Mensaje.mensaje.get("msj2RollEstrella"), 
                         elemPrest1);
             } 
             else if (roll == elemPrest2) {
-                System.out.printf("El roll que mas ha prestado elementos es: \n");
-                System.out.printf("\n%s >> N° veces que han prestado: %d", RollTipoArea.rollEmpleado.get("2"),
-                        elemPrest2);
+                System.out.printf("%s \n", Mensaje.mensaje.get("msjRollEstrella"));
+                System.out.printf("\n%s >> %s %d", RollTipoArea.rollEmpleado.get("2"), Mensaje.mensaje.get("msj2RollEstrella"), 
+                        elemPrest1);
             } 
             else if (roll == elemPrest3) {
-                System.out.printf("El roll que mas ha prestado elementos es: \n");
-                System.out.printf("\n%s >> N° veces que han prestado: %d", RollTipoArea.rollEmpleado.get("3"),
-                        elemPrest3);
+                System.out.printf("%s \n", Mensaje.mensaje.get("msjRollEstrella"));
+                System.out.printf("\n%s >> %s %d", RollTipoArea.rollEmpleado.get("3"), Mensaje.mensaje.get("msj2RollEstrella"), 
+                        elemPrest1);
             } 
             else if (roll == elemPrest4) {
-                System.out.printf("El roll que mas ha prestado elementos es: \n");
-                System.out.printf("\n%s >> N° veces que han prestado: %d", RollTipoArea.rollEmpleado.get("4"),
-                        elemPrest4);
+                System.out.printf("%s \n", Mensaje.mensaje.get("msjRollEstrella"));
+                System.out.printf("\n%s >> %s %d", RollTipoArea.rollEmpleado.get("4"), Mensaje.mensaje.get("msj2RollEstrella"), 
+                        elemPrest1);
             }
         } 
-        else {
-            System.out.printf("\n Ningun elemento ha sido prestado\n");
+        else 
+        {
+            System.out.printf("\n %s\n", Mensaje.mensaje.get("noElementPrest"));
         } 
     }
 }

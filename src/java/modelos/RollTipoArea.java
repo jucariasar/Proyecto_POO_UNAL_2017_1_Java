@@ -8,6 +8,7 @@ public class RollTipoArea {
         public static HashMap<String, String> rollEmpleado = new HashMap<String,String>();
         public static HashMap<String, String> tipoOperario = new HashMap<String,String>();
         public static HashMap<String, String> areaIngeniero = new HashMap<String,String>();
+        public static HashMap<String, String> estadoElemento = new HashMap<String,String>();
     
     public RollTipoArea(){
         rollEmpleado.put("1", "Administrador Almacen");
@@ -22,6 +23,10 @@ public class RollTipoArea {
         areaIngeniero.put("1", "Mantenimiento");
         areaIngeniero.put("2", "Produccion");
         areaIngeniero.put("3", "Calidad");
+        
+        estadoElemento.put("1", "Disponible");
+        estadoElemento.put("2", "Prestado");
+        estadoElemento.put("3", "Reservado");
     }
     
 }

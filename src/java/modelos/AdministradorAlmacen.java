@@ -46,8 +46,8 @@ public class AdministradorAlmacen extends Administrativo {
         String texto;
         int op;
         Empleado empleado;
-        System.out.printf("\n¿Empleado Administrador del almacen?\n\n1. Si.\\n2. No.");
-        System.out.printf("\\nIngrese su Opcion: ");
+        System.out.printf("\n¿%s?\n\n1. Si.\n2. No.", Mensaje.mensaje.get("msj1RegistrarAdminAlmacen"));
+        System.out.printf("\n%s ", Mensaje.mensaje.get("msjOpcion"));
         Scanner entrada = new Scanner(System.in);
         op = entrada.nextInt();
 
@@ -55,10 +55,12 @@ public class AdministradorAlmacen extends Administrativo {
             AdministradorAlmacen admin;
             empleado = new AdministradorAlmacen();
             admin = (AdministradorAlmacen) empleado;
-            System.out.printf("\nEstablezca el usuario: ");
+            entrada.nextLine(); // Descarta la entrada anterior para volver a utilizar entrada
+            System.out.printf("\n%s ", Mensaje.mensaje.get("msj2RegistrarAdminAlmacen"));
             texto = entrada.nextLine();
             admin.setUsuario(texto);
-            System.out.printf("Establezca el Password: ");
+            entrada.nextLine(); // Descarta la entrada anterior para volver a utilizar entrada
+            System.out.printf("%s ", Mensaje.mensaje.get("msj3RegistrarAdminAlmacen"));
             texto = entrada.nextLine();
             admin.setPassword(texto);
             // Implementar forma apropiada de escoger el roll
@@ -66,24 +68,28 @@ public class AdministradorAlmacen extends Administrativo {
             empleado = new Administrativo();
             empleado.setRoll(RollTipoArea.rollEmpleado.get("2"));
         }
-
-        System.out.printf("Ingrese su Numero de Identificacion: ");
+        entrada.nextLine(); // Descarta la entrada anterior para volver a utilizar entrada
+        System.out.printf("%s ", Mensaje.mensaje.get("msj1RegistEmp"));
         op = entrada.nextInt();
         empleado.setIdent(op);
-
+        
         while ((Empleado.buscarEmpleadoPorId(listaE, op)) != null) {
-            System.out.printf(" \n!!! Ya existe un empleado con este numero de identificacion !!!\n");
-            System.out.printf("Ingrese su Numero de Identificacion: ");
+            entrada.nextLine(); // Descarta la entrada anterior para volver a utilizar entrada
+            System.out.printf(" \n!!! %s !!!\n", Mensaje.mensaje.get("msj5RegistrarEmp"));
+            System.out.printf("%s ", Mensaje.mensaje.get("msj1RegistEmp"));
             op = entrada.nextInt();
         }
-
-        System.out.printf("Ingrese su Nombre: ");
+        
+        entrada.nextLine(); // Descarta la entrada anterior para volver a utilizar entrada
+        System.out.printf("%s ", Mensaje.mensaje.get("msj2RegistEmp"));
         texto = entrada.nextLine();
         empleado.setNombre(texto);
-        System.out.printf("Ingrese su Apellido: ");
+        entrada.nextLine(); // Descarta la entrada anterior para volver a utilizar entrada
+        System.out.printf("%s ", Mensaje.mensaje.get("msj3RegistEmp"));
         texto = entrada.nextLine();
         empleado.setApellido(texto);
-        System.out.printf("Ingrese su Email: : ");
+        entrada.nextLine(); // Descarta la entrada anterior para volver a utilizar entrada
+        System.out.printf("%s ", Mensaje.mensaje.get("msj4RegistEmp"));
         texto = entrada.nextLine();
         empleado.setEmail(texto);
         // Implementar forma apropiada de escoger el grado
