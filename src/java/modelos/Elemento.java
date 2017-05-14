@@ -328,7 +328,21 @@ public class Elemento {
         return null;
     }
 
-    public static void registrarElementos() {
+    public static String  registrarElementos(ArrayList<Elemento> listElementos, int Codigo, String Nombre, String Ubicacion, int Valor, String EstadoActual)  {
+      
+        Elemento element = null;
+        if ((buscar_por_id(listElementos, Codigo)) != null) {
+          element.setCondigo(Codigo);
+          element.setNombre(Nombre);
+          element.setUbicacion(Ubicacion);
+          element.setValor(Valor);
+          element.setEstadoActual(EstadoActual);
+          listElementos.add(element);
+          return "Elemento Registrado Con Exito";
+          
+        }else{
+        return "Elemento ya existente";
+        }
         
     }
 
