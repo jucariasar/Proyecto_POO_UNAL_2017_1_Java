@@ -12,7 +12,7 @@ import java.util.*;
  * @author Usuario
  */
 public class HistorialPrestamo {
-    ArrayList<String> Historial = new ArrayList<String>();
+    static List<HistorialPrestamo> historial = new ArrayList<HistorialPrestamo>();
     private int idEmpleado=0;
     private String nomEmpleado="";
     private String nomElemento="";
@@ -73,13 +73,34 @@ public class HistorialPrestamo {
     }
 
     public void setFechaDevolucion(Date fechaDevolucion) {
-        if (getFechaDevolucion()==null){
-            
-        }else{
-            this.fechaDevolucion = fechaDevolucion;
+        
+        this.fechaDevolucion = fechaDevolucion;
 
-        }
     }
 
+    @Override
+    public String toString() {
+        return (" Nombre del Empleado: " + getNomEmpleado() + "N° Identificacion: " + getIdEmpleado() + "Nombre del Elemento: " + getNomElemento() + " Codigo Elemento: " + getCodElemento() + " Fecha Prestamo: " + getFechaPrestamo() + " Fecha Devolucion: " + getFechaDevolucion() );
+        
+    }
     
+    
+    public static void agregarAHistorial(Empleado emp, Elemento element){
+        HistorialPrestamo h=new HistorialPrestamo(emp.getIdent(),emp.getNombre(),element.getNombre(),element.getCodigo(),null,element.getFechaPrestamo());
+        historial.add(h);
+    }
+    
+    public static void agregarFechaEntrega(Empleado emp, Elemento elemento){
+        for (HistorialPrestamo h: historial){
+            if (elemento.getFechaPrestamo().equals(h.getFechaPrestamo()) && emp.getIdent()==h.getIdEmpleado()){
+                h.setFechaDevolucion(new Date());
+            }
+        }
+    }
+    
+    public static void mostrarHistorial(){
+        for (HistorialPrestamo h: historial){
+            System.out.println(h);
+        }
+    }
 }
