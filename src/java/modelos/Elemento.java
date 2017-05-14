@@ -27,6 +27,9 @@ public class Elemento {
     private int contador = 0;
     private double valor;
     private String estadoActual;
+
+    public Elemento() {
+    }
     
     public Elemento(int codigo, String nombre, String ubicacion, int valor, String estadoActual) {
         this.codigo = codigo;
@@ -367,5 +370,17 @@ public class Elemento {
         }
         return null;
     }
-    
+    public static Elemento masPrestado (ArrayList<Elemento> listElementos){
+        
+        int favorito = 0 ;
+        Elemento elem;
+        for(Elemento element:listElementos ){
+            if (element.getContador() > favorito){
+                favorito = element.getContador();
+            
+            }
+        }
+        
+        return null;
+    }
 }
