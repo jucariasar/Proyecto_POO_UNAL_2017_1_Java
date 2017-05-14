@@ -100,8 +100,8 @@ public class Empleado {
         this.elementos = elementos;
     }
 
-    public void getNumRestriccion(int numRestriccion) {
-        this.numRestriccion = numRestriccion;
+    public int getNumRestriccion() {
+        return numRestriccion;
     }
 
     public void setNumRestriccion(int numRestriccion) {

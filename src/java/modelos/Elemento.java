@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//import modelos.Administrativo;
+//import modelos.Operario;
+//import modelos.IngenieroTecnico;
 /**
  *
  * @author camilo
@@ -198,27 +201,21 @@ public class Elemento {
         }
         return null;
     }
- // 
-  
-     public static String elementosPrestados(ArrayList<Elemento> ListaElementos) {
-        int c = 0 ;
-         for (Elemento element : ListaElementos) {
-             if (element.getEstadoActual().equals("Prestado")){
-                 c++;
-                 return element.str_Inventario();
-             }              
+    // 
+
+    public static String elementosPrestados(ArrayList<Elemento> ListaElementos) {
+        int c = 0;
+        for (Elemento element : ListaElementos) {
+            if (element.getEstadoActual().equals("Prestado")) {
+                c++;
+                return element.str_Inventario();
+            }
         }
-        if (c == 0){
-         return "No hay elementos prestados ";
+        if (c == 0) {
+            return "No hay elementos prestados ";
         }
-    return "";   
+        return "";
     }
-
-
-
-
-
-
 
 // Gaurdad datos en un archivo de texto plano.
     public static void guardarDatosEntxt(int m) {
@@ -239,8 +236,48 @@ public class Elemento {
     }
 
     // Metodo para prestar algun elemento que este disponible
-    public static void prestarElementos(ArrayList<Elemento> ListaElementos) {
+    public static void prestarElementos(ArrayList<Elemento> ListaElementos, Empleado emp, int cod) {
+
+        String MENSAJE = "";
+        Date Fecha = new Date();
+
+        if (verificarDisponibles(ListaElementos)) {
+            if (((emp instanceof Administrativo) && (emp.getNumRestriccion() < Administrativo.MAX_AD))
+                    || ((emp instanceof Operario) && (emp.getNumRestriccion() < Operario.MAX_OP))
+                    || ((emp instanceof IngenieroTecnico) && (emp.getNumRestriccion() < IngenieroTecnico.MAX_IT))) {
+                // Codigo del elemento a prestar 
+                Elemento element;
+                element = Elemento.buscarElementoPorId(ListaElementos, cod);
+                if ((element != null) && (element.getEstadoActual().equals("Disponible"))) {
+                    emp.getElementos().add(element);
+                    emp.setContador(emp.getContador() + 1);
+                    emp.setNumElementPres(emp.getNumElementPres() + 1);
+                    emp.setNumRestriccion(emp.getNumRestriccion() + 1);
+                    element.setContador(element.getContador() + 1);
+                    element.setEstadoActual("Prestado");
+
+                    element.setFechaPrestamo(Fecha);
+                    HistorialPrestamo().agregarAHistorial(emp, element);
+                    // Desea prestar mas elementos
+
+                } else if ((element != null) && (element.getEstadoActual().equals("Prestado"))) {
+                    MENSAJE = "Prestado";
+                } else if ((element != null) && (element.getEstadoActual().equals("Reservado"))) {
+                    MENSAJE = "Prestado";
+                } else {
+                    MENSAJE = "No Regisitrado";
+                }
+
+            } else {
+                MENSAJE = "El Usuario no esta autorizado para prestar mas elementos";
+            }
+        } else {
+            MENSAJE = "Elementos no disponible en le inventario";
+        }
 
     }
-
+    public static void recibirElementos(Empleado emp){
+   
+    }
+    
 }
