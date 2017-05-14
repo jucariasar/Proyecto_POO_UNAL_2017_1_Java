@@ -19,6 +19,7 @@ public class HistorialPrestamo {
     private int codElemento=0;
     private Date fechaPrestamo=null;
     private Date fechaDevolucion=null;
+  
     public HistorialPrestamo(int idEmpleado,String nomEmpleado, String nomElemento, int codElemento,Date fechaPrestamo,Date fechaDevolucion){
         this.idEmpleado = idEmpleado;
         this.nomEmpleado=nomEmpleado;

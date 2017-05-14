@@ -257,7 +257,7 @@ public class Elemento {
                     element.setEstadoActual("Prestado");
 
                     element.setFechaPrestamo(Fecha);
-                    HistorialPrestamo().agregarAHistorial(emp, element);
+                    HistorialPrestamo.agregarAHistorial(emp, element);
                     // Desea prestar mas elementos
 
                 } else if ((element != null) && (element.getEstadoActual().equals("Prestado"))) {
