@@ -83,3 +83,21 @@ p.footer
            border:1px solid #D0D0D0;
            -webkit-box-shadow:0 0 8px #D0D0D0
 }
+
+.btn {
+    border: none; /* Remove borders */
+    color: white; /* Add a text color */
+    padding: 14px 28px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+
+.consultas {background-color: #4CAF50;} /* Green */
+.consultas:hover {background-color: #46a049;}
+
+.registrosBorrados {background-color: #f44336;} /* Red */
+.registrosBorrados:hover {background: #da190b;}
+
+.prestarRecibir {background-color: #2196F3 ;} /* Blue */
+.prestarRecibir:hover {background: #0b7dda;}
+
+
