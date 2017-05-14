@@ -276,8 +276,41 @@ public class Elemento {
         }
 
     }
-    public static void recibirElementos(Empleado emp){
-   
+    public static void recibirElementos(Empleado emp, int cod){
+      String MENSAJE = "";
+      Elemento.elementosPrestados(emp.getElementos());
+      if (emp.getNumElementPres()< 0 ){
+         Elemento element = Elemento.buscarElementoPorId(emp.getElementos(), cod);
+         if (element != null){
+             element.setEstadoActual("Disponible");
+             emp.setNumElementPres(emp.getNumElementPres() - 1);
+             emp.setNumRestriccion(emp.getNumRestriccion() - 1);
+             HistorialPrestamo.agregarFechaEntrega(emp, element);
+             element.setFechaPrestamo(null);
+             emp.getElementos().remove(element);
+             
+         }else{
+             MENSAJE = "Codigo No Encontrado";
+         }
+      }else{
+          MENSAJE = "No tiene elementos prestados";
+      } 
+  
     }
-    
+        
+     public static void asentarReserva (ArrayList <Elemento> listElementosEmp,Empleado emp){
+         Date Fecha = new Date();
+         for (Elemento element: listElementosEmp ){
+             if (element.getEstadoActual().equals("Reservado")){
+                 element.setEstadoActual("Prestado");
+                 element.setContador(element.getContador()+1);
+                 element.setFechaPrestamo(Fecha);
+                 emp.setNumElementPres(emp.getNumElementPres()+1);
+                 emp.setContador(emp.getContador() + 1 );
+                 HistorialPrestamo.agregarAHistorial(emp, element);
+             }
+         
+         }
+         
+     }
 }

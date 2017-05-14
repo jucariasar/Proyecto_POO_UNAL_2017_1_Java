@@ -12,7 +12,7 @@ public class Empleado {
     private String roll;
     private int contador;
     private String email;
-    private List<Elemento> elementos = new ArrayList<>();
+    private ArrayList<Elemento> elementos = new ArrayList<>();
     
     public Empleado()
     {
@@ -92,11 +92,11 @@ public class Empleado {
         this.email = email;
     }
 
-    public List<Elemento> getElementos() {
+    public ArrayList<Elemento> getElementos() {
         return elementos;
     }
 
-    public void setElementos(List<Elemento> elementos) {
+    public void setElementos(ArrayList<Elemento> elementos) {
         this.elementos = elementos;
     }
 
