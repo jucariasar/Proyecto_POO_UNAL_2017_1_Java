@@ -94,14 +94,8 @@ public class Elemento {
     }
 
     public void setEstadoActual(String estadoActual) {
-        if (!estadoActual.equals("Disponible")
-                || !estadoActual.equals("Prestado")
-                || !estadoActual.equals("Reservado")) {
-            // enviar mensaje de error. 
-        } else {
-            this.estadoActual = estadoActual;
-        }
-
+        
+        this.estadoActual = estadoActual;
     }
 
     @Override
