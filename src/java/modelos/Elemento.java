@@ -382,11 +382,39 @@ public class Elemento {
             }
             if (elem != null) {
                 return (elem.getNombre() + " El numero de  veces prestado es: " + elem.getContador());
-            }else{
+            } else {
                 return "No hay elementos prestados";
             }
         }
+        return null;
+    }
 
+    public static String cincoMasPrestados(ArrayList<Elemento> listElementos) {
+        int i = 0;
+        int c = 0;
+        ArrayList<Elemento> lista = null;
+
+        while ((i > 0) && (listElementos.size() > 0)) {
+            int favorito = 0;
+            Elemento e = null;
+            for (Elemento element : listElementos) {
+                if (element.getContador() > favorito) {
+                    favorito = element.getContador();
+                    e = element;
+                }
+                if (e != null) {
+                    lista.add(e);
+                    listElementos.remove(e);
+                    c++;
+                }
+                i++;
+            }
+            if (c != 0) {
+                return "Los 5 elementos mas prestados son";
+            } else {
+                return "no hay elementos prestados";
+            }
+        }
         return null;
     }
 }
