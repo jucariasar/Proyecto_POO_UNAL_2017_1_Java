@@ -19,7 +19,7 @@ import java.util.List;
  * @author camilo
  */
 public class Elemento {
-    
+
     private int codigo;
     private String nombre;
     private String ubicacion;
@@ -30,7 +30,7 @@ public class Elemento {
 
     public Elemento() {
     }
-    
+
     public Elemento(int codigo, String nombre, String ubicacion, int valor, String estadoActual) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -40,59 +40,59 @@ public class Elemento {
         this.contador = this.contador + 1;
         this.estadoActual = estadoActual;
     }
-    
+
     public int getCodigo() {
         return codigo;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
-    
+
     public String getUbicacion() {
         return ubicacion;
     }
-    
+
     public Date getFechaPrestamo() {
         return fechaPrestamo;
     }
-    
+
     public int getContador() {
         return contador;
     }
-    
+
     public double getValor() {
         return valor;
     }
-    
+
     public String getEstadoActual() {
         return estadoActual;
     }
-    
+
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
-    
+
     public void setFechaPrestamo(Date fechaPrestamo) {
         this.fechaPrestamo = fechaPrestamo;
     }
-    
+
     public void setContador(int contador) {
         this.contador = contador;
     }
-    
+
     public void setValor(int valor) {
         this.valor = valor;
     }
-    
+
     public void setEstadoActual(String estadoActual) {
         if (!estadoActual.equals("Disponible")
                 || !estadoActual.equals("Prestado")
@@ -101,9 +101,9 @@ public class Elemento {
         } else {
             this.estadoActual = estadoActual;
         }
-        
+
     }
-    
+
     @Override
     public String toString() {
         return "Elemento{" + "codigo=" + codigo + ", nombre=" + nombre
@@ -121,10 +121,10 @@ public class Elemento {
     // Devuelve String con la url completa para ver los detalles de un elemento con un id especifico.
     public String obtenerDireccion() {
         String dir = "http://localhost:8084/almacen/Busqueda?codigo=" + this.getCodigo();
-        
+
         return dir;
     }
-    
+
     public static Elemento buscar_por_id(List<Elemento> elements, int id_a_buscar) {
         for (Elemento e : elements) {
             if (e.getCodigo() == id_a_buscar) {
@@ -136,7 +136,7 @@ public class Elemento {
 
     // Verifica la lista de elementos que estan reservados.
     public static boolean verificarReserva(ArrayList<Elemento> ListaElementos) {
-        
+
         for (Elemento element : ListaElementos) {
             if (element.getEstadoActual().equals("Reservado")) {
                 return true;
@@ -147,13 +147,13 @@ public class Elemento {
 
     // Cancela los Elementos Reservados. 
     public static void cancelarReserva(ArrayList<Elemento> ListaElementos) {
-        
+
         for (Elemento element : ListaElementos) {
             if (element.getEstadoActual().equals("Reservado")) {
                 element.setEstadoActual("Disponible");
             }
         }
-        
+
     }
 
     // Verificar que elementos estan prestados. 
@@ -188,7 +188,7 @@ public class Elemento {
 
     // verifica que elementos estan disponibles en la lista 
     public static String elemetosDisponibles(ArrayList<Elemento> ListaElementos) {
-        
+
         for (Elemento element : ListaElementos) {
             if (element.getEstadoActual().equals("Disponible")) {
                 return element.str_Inventario();
@@ -222,11 +222,11 @@ public class Elemento {
 
 // Gaurdad datos en un archivo de texto plano.
     public static void guardarDatosEntxt(int m) {
-        
+
         try {
             File Archivo = new File("elementos.txt");
             FileWriter escribirTxt = new FileWriter(Archivo, true);
-            
+
             for (int i = 0; i < m; i++) {
             }
 
@@ -235,15 +235,15 @@ public class Elemento {
         } catch (Exception e) {
             System.out.println("Error al crear TXT");
         }
-        
+
     }
 
     // Metodo para prestar algun elemento que este disponible
     public static void prestarElementos(ArrayList<Elemento> ListaElementos, Empleado emp, int cod) {
-        
+
         String MENSAJE = "";
         Date Fecha = new Date();
-        
+
         if (verificarDisponibles(ListaElementos)) {
             if (((emp instanceof Administrativo) && (emp.getNumRestriccion() < Administrativo.MAX_AD))
                     || ((emp instanceof Operario) && (emp.getNumRestriccion() < Operario.MAX_OP))
@@ -258,7 +258,7 @@ public class Elemento {
                     emp.setNumRestriccion(emp.getNumRestriccion() + 1);
                     element.setContador(element.getContador() + 1);
                     element.setEstadoActual("Prestado");
-                    
+
                     element.setFechaPrestamo(Fecha);
                     HistorialPrestamo.agregarAHistorial(emp, element);
                     // Desea prestar mas elementos
@@ -270,16 +270,16 @@ public class Elemento {
                 } else {
                     MENSAJE = "No Regisitrado";
                 }
-                
+
             } else {
                 MENSAJE = "El Usuario no esta autorizado para prestar mas elementos";
             }
         } else {
             MENSAJE = "Elementos no disponible en le inventario";
         }
-        
+
     }
-    
+
     public static void recibirElementos(Empleado emp, int cod) {
         String MENSAJE = "";
         Elemento.elementosPrestados(emp.getElementos());
@@ -292,16 +292,16 @@ public class Elemento {
                 HistorialPrestamo.agregarFechaEntrega(emp, element);
                 element.setFechaPrestamo(null);
                 emp.getElementos().remove(element);
-                
+
             } else {
                 MENSAJE = "Codigo No Encontrado";
             }
         } else {
             MENSAJE = "No tiene elementos prestados";
         }
-        
+
     }
-    
+
     public static void asentarReserva(ArrayList<Elemento> listElementosEmp, Empleado emp) {
         Date Fecha = new Date();
         for (Elemento element : listElementosEmp) {
@@ -315,7 +315,7 @@ public class Elemento {
             }
         }
     }
-    
+
     public static String elementosPrestado(ArrayList<Elemento> listElementosPres) {
         int c = 0;
         for (Elemento element : listElementosPres) {
@@ -324,15 +324,15 @@ public class Elemento {
             c++;
             return (element.str_Inventario());
         }
-        
+
         if (c == 0) {
             return "No Hay Elementos Prestados";
         }
         return null;
     }
-    
+
     public static String registrarElementos(ArrayList<Elemento> listElementos, int Codigo, String Nombre, String Ubicacion, int Valor, String EstadoActual) {
-        
+
         Elemento element = null;
         if ((buscar_por_id(listElementos, Codigo)) != null) {
             element.setCodigo(Codigo);
@@ -342,13 +342,13 @@ public class Elemento {
             element.setEstadoActual(EstadoActual);
             listElementos.add(element);
             return "Elemento Registrado Con Exito";
-            
+
         } else {
             return "Elemento ya existente";
         }
-        
+
     }
-    
+
     public static String reservarElementos(ArrayList<Elemento> listElementos, Empleado emp, int cod) {
         if (((emp instanceof IngenieroTecnico) && (emp.getNumRestriccion() >= IngenieroTecnico.MAX_IT))
                 || (emp instanceof Administrativo) && (emp.getNumRestriccion() >= Administrativo.MAX_AD)
@@ -360,27 +360,33 @@ public class Elemento {
                     if (element.getEstadoActual().equals("Disponible")) {
                         element.setEstadoActual("Reservado");
                         emp.addElemento(element);
-                        emp.setNumRestriccion(emp.getNumRestriccion() + 1);                                            
+                        emp.setNumRestriccion(emp.getNumRestriccion() + 1);
                         return "Elemento Reservado con exito";
-                        
-                    }                    
-                }                
+
+                    }
+                }
             }
-            
+
         }
         return null;
     }
-    public static Elemento masPrestado (ArrayList<Elemento> listElementos){
-        
-        int favorito = 0 ;
-        Elemento elem;
-        for(Elemento element:listElementos ){
-            if (element.getContador() > favorito){
+
+    public static String masPrestado(ArrayList<Elemento> listElementos) {
+
+        int favorito = 0;
+        Elemento elem = null;
+        for (Elemento element : listElementos) {
+            if (element.getContador() > favorito) {
                 favorito = element.getContador();
-            
+                elem = element;
+            }
+            if (elem != null) {
+                return (elem.getNombre() + " El numero de  veces prestado es: " + elem.getContador());
+            }else{
+                return "No hay elementos prestados";
             }
         }
-        
+
         return null;
     }
 }
