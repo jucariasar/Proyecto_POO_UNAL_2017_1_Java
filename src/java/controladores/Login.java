@@ -50,14 +50,22 @@ public class Login extends HttpServlet {
             HttpSession session = request.getSession();
             List<Elemento> elementos = new ArrayList<>();
             List<Empleado> empleados = new ArrayList<>();
+            int contador = Almacen.controlFicticios;
+            
+            if(null == session.getAttribute("ctrlFictios")){
+                session.setAttribute("ctrlFictios", contador);
+                Almacen.crearDatosFicticios();
+            }
+            
             if (null != session.getAttribute("Elemento")) {
                 elementos = (ArrayList<Elemento>) session.getAttribute("Elemento");
                 empleados = (ArrayList<Empleado>) session.getAttribute("Empleado");
             }
             
-            Almacen.crearDatosFicticios();
             String email = request.getParameter("email");
             int id = Integer.parseInt(request.getParameter("id"));
+            elementos = Almacen.elementos;
+            empleados = Almacen.empleados;
             session.setAttribute("Elemento", elementos);
             session.setAttribute("Empleado", empleados);
             

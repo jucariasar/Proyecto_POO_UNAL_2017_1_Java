@@ -9,6 +9,7 @@ public class Almacen {
     
     public static List<Empleado> empleados = new ArrayList<>();
     public static List<Elemento> elementos = new ArrayList<>();
+    public static int controlFicticios = 0;
     
     public static void crearDatosFicticios(){
         AdministradorAlmacen e1 = new AdministradorAlmacen();
@@ -71,7 +72,7 @@ public class Almacen {
         element1.setUbicacion("A5");
         element1.setFechaPrestamo(null);
         element1.setValor(250);
-        //element1.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
+        element1.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
         elementos.add(element1);
         
         Elemento element2 = new Elemento();
@@ -80,25 +81,25 @@ public class Almacen {
         element2.setUbicacion("B4");
         element2.setFechaPrestamo(null);
         element2.setValor(125);
-       // element2.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
+        element2.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
         elementos.add(element2);
         
         Elemento element3 = new Elemento();
-        element3.setCodigo(25);
+        element3.setCodigo(45);
         element3.setNombre("Multimetro");
         element3.setUbicacion("C1");
         element3.setFechaPrestamo(null);
         element3.setValor(120);
-        //element3.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
+        element3.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
         elementos.add(element3);
         
         Elemento element4 = new Elemento();
-        element4.setCodigo(25);
+        element4.setCodigo(55);
         element4.setNombre("Taladro");
         element4.setUbicacion("A5");
         element4.setFechaPrestamo(null);
         element4.setValor(250);
-        //element4.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
+        element4.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
         elementos.add(element4);
         
     
