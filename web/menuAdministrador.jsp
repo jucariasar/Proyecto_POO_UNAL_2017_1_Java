@@ -12,8 +12,8 @@
 		<style type="text/css">
 			
 			* {
-				margin:0.2px;
-				padding:0.6px;
+				margin:0.4px;
+				padding:1px;
                                 
 			}
 			
@@ -28,7 +28,13 @@
 			}
 			
 			.nav > li {
+                                
 				float:left;
+                                background-color:#f07800;
+				color: #ffffff;
+				text-decoration:none;
+				padding:8px 10px;
+				display:block;
 			}
 			
 			.nav li a {
@@ -45,6 +51,7 @@
 			}
 			
 			.nav li ul {
+                                
 				display:none;
 				position:fixed;
 				min-width:140px;
@@ -59,6 +66,7 @@
 			}
 			
 			.nav li ul li ul {
+                            
 				right:-120px;
 				top:0px;
 			}
@@ -76,7 +84,7 @@
             </body>
             <div id="header">
                 <ul class="nav">
-                    <li><a href="">Consultas</a>
+                    <li>Consultas
                         <ul>
                             <li><a href="MostrarElementos">Inventario de Elementos</a></li>
                             <li><a href="">Base de Datos de Empleados</a></li>
@@ -87,20 +95,20 @@
                             <li><a href="">Mostrar Historial</a></li>
 			</ul>
                     </li>
-                    <li><a href="">Registros</a>
+                    <li>Registros
 			<ul>
                             <li><a href="">Registrar Empleado</a></li>
                             <li><a href="RegistroElemento">Registrar Elemento</a></li>
                             </li>
 			</ul>
                     </li>
-                    <li><a href="">Borrados </a>
+                    <li>Borrados 
 			<ul>
                             <li><a href="">Borrar Empleado</a></li>
                             <li><a href="">Borrar Elemento</a></li>
                         </ul>
                     </li>
-                    <li><a href="">Prestamos </a>
+                    <li>Prestamos 
 			<ul>
                             <li><a href="">Prestar Elementos</a></li>
                             <li><a href="">Recibir Elementos</a></li>
