@@ -50,7 +50,9 @@ form input[type="submit"]{
     margin-bottom: 10px;
     padding: 8px 20px;
     border: none;
-    font-weight: bold; 
+    font-weight: bold;
+    align-items: center;
+    alignment-adjust: auto;
 }
 form input[type="submit"]:hover{
     background: darkorange;

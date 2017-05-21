@@ -12,16 +12,31 @@
         <title>Borrar Elemento</title>
         <link rel="stylesheet" type="text/css" href="css/estilosLogin.css" />
     </head>
-    <body>
+    <body>            
+        <h1> Listado de Elementos </h1> 
+        <table class="tg">
+               <tr>
+                   <th width="150">Id</th>
+                   <th width="150">Nombre</th>
+                   <th width="150">Apellido</th>
+                   <th width="150">Roll</th>
+                   <th width="150">Email</th>
+               </tr>
+               <c:forEach items="${empleados}" var="emp">
+                   <tr>
+                    <td>${emp.getIdent()}</td>
+                    <td>${emp.getNombre()}</td>
+                    <td>${emp.getApellido()}</td>
+                    <td>${emp.getRoll()}</td>
+                    <td>${emp.getEmail()}</td>
+                  </tr>
+                </c:forEach>
+          </table>
         <form method="POST" action="./Login">
-            <h1> Borrar Elemento </h1>
+            <h2> Borrar Elemento </h2>
             <label for="">Digite Codigo Del Elemento </label><br>         
             <input type="text" name="CE" placeholder="Codigo Elemento" required><br/>
-            <input type="submit" value="Entrar">
-           
-            <c:if test="${not empty mensaje}">
-                <p>${mensaje}</p>
-            </c:if><br/>
+            <input type="submit" value="Borrar">           
         </form>
     </body>
 </html>
