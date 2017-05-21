@@ -13,15 +13,17 @@
         <link rel="stylesheet" type="text/css" href="css/estilosLogin.css" />
     </head>
     <body>
-        <form method="POST" action="./Login">
+        <form method="POST" action="./BorrarUsuarios">
             <h1> Borrar Usuario </h1>
+            
             <label for="">Digite Cedula </label><br>         
             <input type="text" name="id" placeholder="N° de Documento" required><br/>
-
             <input type="submit" value="Entrar">
+            
             <c:if test="${not empty mensaje}">
-                <p>${mensaje}</p>
-            </c:if><br/>
+              <p>${mensaje}</p>
+            </c:if><br/> 
         </form>
+            
     </body>
 </html>

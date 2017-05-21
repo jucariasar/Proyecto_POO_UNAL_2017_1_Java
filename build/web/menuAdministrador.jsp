@@ -104,7 +104,7 @@
                     </li>
                     <li>Borrados 
 			<ul>
-                            <li><a href="">Borrar Empleado</a></li>
+                            <li><a href="BorrarUsuarios">Borrar Empleado</a></li>
                             <li><a href="">Borrar Elemento</a></li>
                         </ul>
                     </li>
