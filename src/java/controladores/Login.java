@@ -86,7 +86,7 @@ public class Login extends HttpServlet {
             }
             else if(e1 instanceof AdministradorAlmacen && e1.getEmail().equals(email))
             {
-                        RequestDispatcher view = request.getRequestDispatcher("menu_administrador.jsp");
+                        RequestDispatcher view = request.getRequestDispatcher("menuAdministrador.jsp");
                         view.forward(request, response); 
             }        
     }
