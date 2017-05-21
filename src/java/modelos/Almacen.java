@@ -71,7 +71,7 @@ public class Almacen {
         element1.setUbicacion("A5");
         element1.setFechaPrestamo(null);
         element1.setValor(250);
-        element1.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
+        //element1.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
         elementos.add(element1);
         
         Elemento element2 = new Elemento();
@@ -80,7 +80,7 @@ public class Almacen {
         element2.setUbicacion("B4");
         element2.setFechaPrestamo(null);
         element2.setValor(125);
-        element2.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
+       // element2.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
         elementos.add(element2);
         
         Elemento element3 = new Elemento();
@@ -89,7 +89,7 @@ public class Almacen {
         element3.setUbicacion("C1");
         element3.setFechaPrestamo(null);
         element3.setValor(120);
-        element3.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
+        //element3.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
         elementos.add(element3);
         
         Elemento element4 = new Elemento();
@@ -98,7 +98,7 @@ public class Almacen {
         element4.setUbicacion("A5");
         element4.setFechaPrestamo(null);
         element4.setValor(250);
-        element4.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
+        //element4.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
         elementos.add(element4);
         
     
