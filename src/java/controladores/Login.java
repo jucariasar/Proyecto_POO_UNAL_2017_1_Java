@@ -17,9 +17,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelos.AdministradorAlmacen;
+import modelos.Administrativo;
 import modelos.Almacen;
 import modelos.Elemento;
 import modelos.Empleado;
+import modelos.IngenieroTecnico;
+import modelos.Operario;
 
 
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
@@ -55,6 +58,8 @@ public class Login extends HttpServlet {
             if(null == session.getAttribute("ctrlFictios")){
                 session.setAttribute("ctrlFictios", contador);
                 Almacen.crearDatosFicticios();
+                elementos = Almacen.elementos;
+                empleados = Almacen.empleados;
             }
             
             if (null != session.getAttribute("Elemento")) {
@@ -64,13 +69,12 @@ public class Login extends HttpServlet {
             
             String email = request.getParameter("email");
             int id = Integer.parseInt(request.getParameter("id"));
-            elementos = Almacen.elementos;
-            empleados = Almacen.empleados;
+            
             session.setAttribute("Elemento", elementos);
             session.setAttribute("Empleado", empleados);
             
             
-            Empleado e1 = Empleado.buscarEmpleadoPorId(Almacen.empleados, id);
+            Empleado e1 = Empleado.buscarEmpleadoPorId(empleados, id);
             
             String mensaje;
             
@@ -88,7 +92,14 @@ public class Login extends HttpServlet {
             {
                         RequestDispatcher view = request.getRequestDispatcher("menuAdministrador.jsp");
                         view.forward(request, response); 
-            }        
+            }
+            else if((e1 instanceof IngenieroTecnico || e1 instanceof Operario 
+                    || e1 instanceof Administrativo) && e1.getEmail().equals(email))
+            {
+                        RequestDispatcher view = request.getRequestDispatcher("menuEmpleado.jsp");
+                        view.forward(request, response);
+                
+            }
     }
 
 }
