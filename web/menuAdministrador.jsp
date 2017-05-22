@@ -87,7 +87,7 @@
                     <li>Consultas
                         <ul>
                             <li><a href="MostrarElementos">Inventario de Elementos</a></li>
-                            <li><a href="">Base de Datos de Empleados</a></li>
+                            <li><a href="MostrarEmpleados">Base de Datos de Empleados</a></li>
                             <li><a href="">Elemento mas Prestado</a></li>
                             <li><a href="">cinco Elementos mas Prestados</a></li>
                             <li><a href="">Empleado con mas elementos Prestados</a></li>
