@@ -68,7 +68,7 @@ public class BorrarUsuarios extends HttpServlet {
            
             
             
-            if (!req.getAttribute("borrar").equals(null)){
+            if (!req.{
                 System.out.println("I got it");
             
             }

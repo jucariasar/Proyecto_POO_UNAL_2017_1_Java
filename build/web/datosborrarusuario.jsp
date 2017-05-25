@@ -33,9 +33,9 @@
                         <td>${empleadob.getEmail()}</td>
                     </tr>    
                 </c:if><br/> 
-               <input type="submit" value="Borrar" name = "borrar"> </input>
-               <input type="submit" value="Cancelar"></input>
-            </table>
+                
+               <input type="submit" id = "borrar" value="Borrar" name = "borrar"> </input>
+               <button onclick="volver()">Cancelar</button>            </table>
 
         </form>
 
