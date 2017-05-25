@@ -34,7 +34,7 @@
                 <th>Opciones:</th>
             </tr>
             <tr>
-                <td><a href="ConsElemDisp">Consultar Elementos Disponibles</a></td>
+                <td><a href="ConsultarDisp">Consultar Elementos Disponibles</a></td>
             </tr>
             <tr>
                 <td><a href="ConsElemPres">Consultar Elementos Prestados</a></td>

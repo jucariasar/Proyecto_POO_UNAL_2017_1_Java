@@ -77,7 +77,7 @@
             <body>
                 
                 <form name="link"><select name="menu">
-                            <option value="">Administrador Almacen</option>
+                            <option value="MenuAdministrador">Administrador Almacen</option>
                             <option value="MenuEmpleado">Empleado</option>
                         </select>  <input onclick="location=document.link.menu.options[document.link.menu.selectedIndex].value;" type="button" value="Ir" /><span style="line-height: 2em;"> </span></form>            
                 

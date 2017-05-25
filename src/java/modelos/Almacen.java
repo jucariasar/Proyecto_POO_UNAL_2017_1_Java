@@ -85,7 +85,7 @@ public class Almacen {
         element2.setUbicacion("B4");
         element2.setFechaPrestamo(null);
         element2.setValor(125);
-        element2.setEstadoActual(RollTipoArea.estadoElemento.get("1"));
+        element2.setEstadoActual(RollTipoArea.estadoElemento.get("2"));
         elementos.add(element2);
         
         Elemento element3 = new Elemento();
@@ -99,7 +99,7 @@ public class Almacen {
         
         Elemento element4 = new Elemento();
         element4.setCodigo(55);
-        element4.setNombre("Taladro");
+        element4.setNombre("Pistola Neumatica");
         element4.setUbicacion("A5");
         element4.setFechaPrestamo(null);
         element4.setValor(250);

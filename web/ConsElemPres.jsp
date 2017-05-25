@@ -4,14 +4,31 @@
     Author     : Usuario
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@ include file="header.jsp" %>
+
+    <h1>Mostrar Elementos<h1>
+    <form method="POST" action="./ConsElemPres">
+         <input type="submit" value="Elementos Prestados" />
+    </form>
+    <c:if test="${not empty elementos}">
+        <table class="tg">
+            <tr><th width="80">Codigo</th>
+                <th width="120">Nombre</th>
+                <th width="120">Estado Actual</th>
+                
+            </tr>
+            <c:forEach items="${elementos}" var="element">
+                <tr><td>${element.getCodigo()}</td>
+                    <td>${element.getNombre()}</td>
+                    <td>${element.getEstadoActual()}</td>
+  
+                    
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
+            
+
+        
+
+    <%@ include file="footer.jsp" %>

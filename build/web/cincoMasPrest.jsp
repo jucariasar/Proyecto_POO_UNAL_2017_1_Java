@@ -12,24 +12,27 @@
         <link rel="stylesheet" type="text/css" href="css/estilosLogin.css" />
     </head>
     <body>
-    
-    <form method="GET" action="./CincoMasPrest">
-        
-    <c:if test="${not empty mensaje}">
-        <table class="tg">
-            <tr><th width="140">Los Cinco Elementos Mas Prestados Son:</th>
-                
-            </tr>
-            <c:forEach items="${mensaje}" var="elem">
-                <tr><td width="140">${elem.getNombre()} N° veces prestado ${elem.getContador()}</td>
-                </tr>
-            </c:forEach>
-        </table>
-        <c:if test="${empty mensaje}">
-            <p>No Hay Elementos Prestados</p>
-        </c:if>    </c:if>
-    
-    </form> 
+
+        <form method="GET" action="./CincoMasPrest">
+
+            <c:if test="${not empty mensaje}">
+                <table class="tg">
+
+                    <tr><th width="80">Codigo</th>
+                               
+                    </tr>
+                    <c:forEach items="${mensaje}" var="elem">
+                        <tr>
+                            <td width=auto>${elem.getNombre()}  ${elem.getContador()}</td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </c:if>
+            <c:if test="${empty mensaje}">
+                <p>${mensaje}</p>
+            </c:if>    
+
+        </form> 
     </body>
 
     <%@ include file="footer.jsp" %>

@@ -18,14 +18,14 @@ import modelos.Elemento;
  *
  * @author camilo
  */
-@WebServlet(name = "ConsElemPres", urlPatterns = {"/ConsElemPres"})
-public class ConsElemPres extends HttpServlet {
+@WebServlet(name = "ConsultarDisp", urlPatterns = {"/ConsultarDisp"})
+public class ConsultarDisp extends HttpServlet {
 
    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher view = request.getRequestDispatcher("ConsElemPres.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("consultarDisp.jsp");
         view.forward(request, response);
     }
 
@@ -39,9 +39,9 @@ public class ConsElemPres extends HttpServlet {
             elementos = (ArrayList<Elemento>) session.getAttribute("Elemento");
         }
        
-       List<Elemento> e1= Elemento.elementosPrestado((ArrayList<Elemento>) elementos);
+       List<Elemento> e1= Elemento.elemetosDisponibles((ArrayList<Elemento>) elementos);
         request.setAttribute("elementos", e1);
-        RequestDispatcher view = request.getRequestDispatcher("ConsElemPres.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("consultarDisp.jsp");
         view.forward(request, response);
     }
 

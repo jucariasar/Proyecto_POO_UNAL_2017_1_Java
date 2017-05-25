@@ -1,14 +1,14 @@
 <%-- 
-    Document   : mostrarelementos
-    Created on : 01-may-2017, 0:04:50
-    Author     : camilo
+    Document   : consultarDisp
+    Created on : 25/05/2017, 01:39:10 PM
+    Author     : pablo.castrillon
 --%>
 
 <%@ include file="header.jsp" %>
 
     <h1>Mostrar Elementos<h1>
-    <form method="POST" action="./MostrarElementos">
-         <input type="submit" value="Mostrar Elementos" />
+    <form method="POST" action="./ConsultarDisp">
+         <input type="submit" value="Elementos Disponibles" />
     </form>
     <c:if test="${not empty elementos}">
         <table class="tg">

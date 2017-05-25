@@ -181,14 +181,14 @@ public class Elemento {
     }
 
     // verifica que elementos estan disponibles en la lista 
-    public static String elemetosDisponibles(ArrayList<Elemento> ListaElementos) {
-
+    public static List<Elemento> elemetosDisponibles(ArrayList<Elemento> ListaElementos) {
+        List<Elemento> elemDis = new ArrayList<Elemento>();
         for (Elemento element : ListaElementos) {
             if (element.getEstadoActual().equals("Disponible")) {
-                return element.str_Inventario();
+                elemDis.add(element);
             }
         }
-        return null;
+        return elemDis;
     }
 
     // retorna el lsitado de los elementos 
@@ -200,20 +200,7 @@ public class Elemento {
     }
     // 
 
-    public static String elementosPrestados(ArrayList<Elemento> ListaElementos) {
-        int c = 0;
-        for (Elemento element : ListaElementos) {
-            if (element.getEstadoActual().equals("Prestado")) {
-                c++;
-                return element.str_Inventario();
-            }
-        }
-        if (c == 0) {
-            return "No hay elementos prestados ";
-        }
-        return "";
-    }
-
+  
 // Gaurdad datos en un archivo de texto plano.
     public static void guardarDatosEntxt(int m) {
 
@@ -276,7 +263,7 @@ public class Elemento {
 
     public static void recibirElementos(Empleado emp, int cod) {
         String MENSAJE = "";
-        Elemento.elementosPrestados(emp.getElementos());
+        Elemento.elementosPrestado(emp.getElementos());
         if (emp.getNumElementPres() < 0) {
             Elemento element = Elemento.buscarElementoPorId(emp.getElementos(), cod);
             if (element != null) {
@@ -310,19 +297,14 @@ public class Elemento {
         }
     }
 
-    public static String elementosPrestado(ArrayList<Elemento> listElementosPres) {
-        int c = 0;
+    public static List<Elemento> elementosPrestado(ArrayList<Elemento> listElementosPres) {
+        List<Elemento> elemPres = new ArrayList<Elemento>();
         for (Elemento element : listElementosPres) {
             if (element.getEstadoActual().equals("Prestado")) {
+                elemPres.add(element);
             }
-            c++;
-            return (element.str_Inventario());
         }
-
-        if (c == 0) {
-            return "No Hay Elementos Prestados";
-        }
-        return null;
+        return elemPres;
     }
 
     public static String registrarElementos(ArrayList<Elemento> listElementos, int Codigo, String Nombre, String Ubicacion, int Valor, String EstadoActual) {

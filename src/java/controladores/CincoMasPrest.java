@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelos.Elemento;
 import modelos.Empleado;
+
 /**
  *
  * @author pablo.castrillon
@@ -33,25 +34,26 @@ public class CincoMasPrest extends HttpServlet {
             elementos = (ArrayList<Elemento>) session.getAttribute("Elemento");
         }
         ArrayList<Elemento> mensaje = Elemento.cincoMasPrestados((ArrayList<Elemento>) elementos);
-        
-        
+
+        if (mensaje == null) {
             req.setAttribute("mensaje", mensaje);
             RequestDispatcher view = req.getRequestDispatcher("cincoMasPrest.jsp");
             view.forward(req, resp);
+        } else {
+            req.setAttribute("mensaje", mensaje);
+            RequestDispatcher view = req.getRequestDispatcher("cincoMasPrest.jsp");
+            view.forward(req, resp);
+
+        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-            RequestDispatcher view = req.getRequestDispatcher("menuAdministrador.jsp");
-            view.forward(req, resp);
+        RequestDispatcher view = req.getRequestDispatcher("menuAdministrador.jsp");
+        view.forward(req, resp);
 
-        
-            
-        }
-        
-        
-        
     }
 
-    
+}
