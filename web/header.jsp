@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Opciones de Elementos</title>
+        <title>StoreSystem</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
     <body>

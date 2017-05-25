@@ -94,7 +94,7 @@ public class Elemento {
     }
 
     public void setEstadoActual(String estadoActual) {
-        
+
         this.estadoActual = estadoActual;
     }
 
@@ -377,13 +377,13 @@ public class Elemento {
             if (elem != null) {
                 return (elem.getNombre() + " El numero de  veces prestado es: " + elem.getContador());
             } else {
-                return "No hay elementos prestados";
+                return "  No hay elementos prestados";
             }
         }
         return null;
     }
 
-    public static String cincoMasPrestados(ArrayList<Elemento> listElementos) {
+    public static ArrayList<Elemento> cincoMasPrestados(ArrayList<Elemento> listElementos) {
         int i = 0;
         int c = 0;
         ArrayList<Elemento> lista = null;
@@ -404,9 +404,9 @@ public class Elemento {
                 i++;
             }
             if (c != 0) {
-                return "Los 5 elementos mas prestados son";
+                return lista;
             } else {
-                return "no hay elementos prestados";
+                return null;
             }
         }
         return null;

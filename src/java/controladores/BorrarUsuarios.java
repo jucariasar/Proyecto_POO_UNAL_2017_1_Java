@@ -67,12 +67,7 @@ public class BorrarUsuarios extends HttpServlet {
             view.forward(req, resp);
            
             
-            
-            if (!req.{
-                System.out.println("I got it");
-            
-            }
-          
+ 
         }
         
         

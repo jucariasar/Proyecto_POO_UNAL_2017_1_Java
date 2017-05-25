@@ -20,9 +20,7 @@
                 <tr><td>${element.getCodigo()}</td>
                     <td>${element.getNombre()}</td>
   
-                    <td><a href=${element.obtenerDireccion()}>
-            Ver Detalles
-                </a></td>
+                    
                 </tr>
             </c:forEach>
         </table>

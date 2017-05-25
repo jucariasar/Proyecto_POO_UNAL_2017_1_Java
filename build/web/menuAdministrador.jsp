@@ -88,8 +88,8 @@
                         <ul>
                             <li><a href="MostrarElementos">Inventario de Elementos</a></li>
                             <li><a href="MostrarEmpleados">Base de Datos de Empleados</a></li>
-                            <li><a href="">Elemento mas Prestado</a></li>
-                            <li><a href="">cinco Elementos mas Prestados</a></li>
+                            <li><a href="MasPrestado">Elemento mas Prestado</a></li>
+                            <li><a href="CincoMasPrest">cinco Elementos mas Prestados</a></li>
                             <li><a href="">Empleado con mas elementos Prestados</a></li>
                             <li><a href="">Roll que mas Presta</a></li>
                             <li><a href="">Mostrar Historial</a></li>
