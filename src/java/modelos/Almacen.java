@@ -12,12 +12,16 @@ public class Almacen {
     public static int controlFicticios = 0;
     
     public static void crearDatosFicticios(){
+        
+        RollTipoArea.inicializar();
+        
+        
         AdministradorAlmacen e1 = new AdministradorAlmacen();
         e1.setIdent(1);
         e1.setNombre("Pablo");
         e1.setApellido("Castrillon");
         e1.setNumElementPres(0);
-        e1.setRoll(RollEmpleado.tiposEmpleado.get("1"));
+        e1.setRoll(RollTipoArea.rollEmpleado.get("1"));
         e1.setEmail("pc@unal.edu.co");
         e1.setGrado(10);
         e1.setUsuario("pcastrillon");
@@ -29,7 +33,7 @@ public class Almacen {
         e2.setNombre("Jaider");
         e2.setApellido("Peralta");
         e2.setNumElementPres(0);
-        e2.setRoll(RollEmpleado.tiposEmpleado.get("1"));
+        e2.setRoll(RollTipoArea.rollEmpleado.get("1"));
         e2.setEmail("jp@unal.edu.co");
         e2.setGrado(10);
         e2.setUsuario("jperalta");
@@ -41,7 +45,7 @@ public class Almacen {
         e3.setNombre("Yeison");
         e3.setApellido("Ortiz");
         e3.setNumElementPres(0);
-        e3.setRoll(RollEmpleado.tiposEmpleado.get("2"));
+        e3.setRoll(RollTipoArea.rollEmpleado.get("2"));
         e3.setEmail("jo@unal.edu.co");
         e3.setGrado(10);
         empleados.add(e3);
@@ -51,8 +55,8 @@ public class Almacen {
         e4.setNombre("Carlos");
         e4.setApellido("Tamayo");
         e4.setNumElementPres(0);
-        e4.setRoll(RollEmpleado.tiposEmpleado.get("3"));
-        e4.setEmail("jo@unal.edu.co");
+        e4.setRoll(RollTipoArea.rollEmpleado.get("3"));
+        e4.setEmail("ct@metalmecanica.com");
         e4.setArea(RollTipoArea.areaIngeniero.get("2"));
         empleados.add(e4);
         
@@ -61,8 +65,8 @@ public class Almacen {
         e5.setNombre("Luis");
         e5.setApellido("Ospina");
         e5.setNumElementPres(0);
-        e5.setRoll(RollEmpleado.tiposEmpleado.get("4"));
-        e5.setEmail("lo@unal.edu.co");
+        e5.setRoll(RollTipoArea.rollEmpleado.get("4"));
+        e5.setEmail("lo@metalmecanica.com");
         e5.setTipo(RollTipoArea.tipoOperario.get("1"));
         empleados.add(e5);
         

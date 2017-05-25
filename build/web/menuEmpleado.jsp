@@ -34,13 +34,13 @@
                 <th>Opciones:</th>
             </tr>
             <tr>
-                <td><a href="">Consultar Elementos Disponibles</a></td>
+                <td><a href="ConsElemDisp">Consultar Elementos Disponibles</a></td>
             </tr>
             <tr>
-                <td><a href="">Consultar Elementos Prestados</a></td>
+                <td><a href="ConsElemPres">Consultar Elementos Prestados</a></td>
             </tr>
             <tr>
-                <td><a href="">Cancelar Reserva de Elementos</a></td>
+                <td><a href="CancReseElem">Cancelar Reserva de Elementos</a></td>
             </tr>
         </table>
         </center>

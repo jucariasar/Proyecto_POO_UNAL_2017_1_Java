@@ -5,12 +5,13 @@ import java.util.HashMap;
 
 
 public class RollTipoArea {
-        public static HashMap<String, String> rollEmpleado = new HashMap<String,String>();
-        public static HashMap<String, String> tipoOperario = new HashMap<String,String>();
-        public static HashMap<String, String> areaIngeniero = new HashMap<String,String>();
-        public static HashMap<String, String> estadoElemento = new HashMap<String,String>();
+        public static HashMap<String, String> rollEmpleado = new HashMap<String, String>();
+        public static HashMap<String, String> tipoOperario = new HashMap<String, String>();
+        public static HashMap<String, String> areaIngeniero = new HashMap<String, String>();
+        public static HashMap<String, String> estadoElemento = new HashMap<String, String>();
+       
     
-    public RollTipoArea(){
+    public static void inicializar(){
         rollEmpleado.put("1", "Administrador Almacen");
         rollEmpleado.put("2", "Administrativo");
         rollEmpleado.put("3", "Ingeniero Tecnico");
