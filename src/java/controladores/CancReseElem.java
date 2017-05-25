@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelos.Elemento;
+import modelos.Empleado;
 /**
  *
  * @author Usuario
@@ -51,9 +53,15 @@ public class CancReseElem extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = req.getSession();
+        List<Elemento> elementos = new ArrayList<>();
+
+        if (null != session.getAttribute("Elemento")) {
+            elementos = (ArrayList<Elemento>) session.getAttribute("Elemento");
+        }
+        
     }
 
     /**
@@ -65,19 +73,41 @@ public class CancReseElem extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = req.getSession();
+        List<Elemento> elementos = new ArrayList<>();
+
+        if (null != session.getAttribute("Elemento")) {
+            elementos = (ArrayList<Elemento>) session.getAttribute("Elemento");
+        }
+
+        int id = Integer.parseInt(req.getParameter("id"));
+             session.setAttribute("Elemento", elementos);
+
+       
+        String mensaje =  Elemento.cancelarReserva((ArrayList<Elemento>) elementos, id);
+        
+        if (mensaje == null) {
+            req.setAttribute("mensaje", mensaje);
+            RequestDispatcher view = req.getRequestDispatcher("CancReseElem.jsp");
+            view.forward(req, resp);
+
+        } else {
+            req.setAttribute("mensaje", mensaje);
+            RequestDispatcher view = req.getRequestDispatcher("CancReseElem.jsp");
+            view.forward(req, resp);
+           
+            
+ 
+        }
+        
+        
+        
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    }
 
-}
+    
+   
+

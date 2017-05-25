@@ -140,14 +140,20 @@ public class Elemento {
     }
 
     // Cancela los Elementos Reservados. 
-    public static void cancelarReserva(ArrayList<Elemento> ListaElementos) {
+    public static String cancelarReserva(ArrayList<Elemento> ListaElementos, int id) {
 
         for (Elemento element : ListaElementos) {
-            if (element.getEstadoActual().equals("Reservado")) {
-                element.setEstadoActual("Disponible");
-            }
-        }
 
+            if (element.getCodigo() == id) {
+                if (element.getEstadoActual().equals("Reservado")) {
+                    element.setEstadoActual("Disponible");
+                    return "Borrado con exito";
+                }
+
+            }
+
+        }
+        return null;
     }
 
     // Verificar que elementos estan prestados. 
@@ -200,7 +206,6 @@ public class Elemento {
     }
     // 
 
-  
 // Gaurdad datos en un archivo de texto plano.
     public static void guardarDatosEntxt(int m) {
 
