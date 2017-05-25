@@ -76,7 +76,7 @@
             </body>
             <div id="header">
                 <ul class="nav">
-                    <li><a href="">Consultas</a>
+                    <li>Consultas
                         <ul>
                             <li><a href="MostrarElementos">Inventario de Elementos</a></li>
                             <li><a href="">Base de Datos de Empleados</a></li>

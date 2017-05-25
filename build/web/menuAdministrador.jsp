@@ -76,7 +76,7 @@
             </body>
             <div id="header">
                 <ul class="nav">
-                    <li><a href="">Consultas</a>
+                    <li>Consultas
                         <ul>
                             <li><a href="MostrarElementos">Inventario de Elementos</a></li>
                             <li><a href="">Base de Datos de Empleados</a></li>
@@ -96,7 +96,7 @@
                     </li>
                     <li><a href="">Borrados </a>
 			<ul>
-                            <li><a href="">Borrar Empleado</a></li>
+                            <li><a href="BorrarUsuarios">Borrar Empleado</a></li>
                             <li><a href="">Borrar Elemento</a></li>
                         </ul>
                     </li>

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="css/estilos.css.css" />
     </head>
     <body>
-        <form method="POST" action="./Login">
+        <form method="POST" action="./BorrarUsuarios">
              <table class="tg">
                    <tr>
                            <th width="150">Id</th>
@@ -22,13 +23,19 @@
                            <th width="150">Roll</th>
                            <th width="150">Email</th>
 
-                    </tr>
-              <c:if test="${not empty empleadob}">
-              <p>${empleadob}</p>
-            </c:if><br/> 
-                <td style="left:inherit"> <input type="submit" value="Borrar"> </input></td> 
-                <td style="right:inherit"> <input type="submit" value="Cancelar"></input></td> 
-
+                </tr>
+                <c:if test="${not empty empleadob}">
+                    <tr>
+                        <td>${empleadob.getIdent()}</td>
+                        <td>${empleadob.getNombre()}</td>
+                        <td>${empleadob.getApellido()}</td>
+                        <td>${empleadob.getRoll()}</td>
+                        <td>${empleadob.getEmail()}</td>
+                    </tr>    
+                </c:if><br/> 
+               <input type="submit" value="Borrar" name = "borrar"> </input>
+               <input type="submit" value="Cancelar"></input>
+            </table>
 
         </form>
 

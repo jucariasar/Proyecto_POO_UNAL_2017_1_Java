@@ -50,10 +50,9 @@ public class BorrarUsuarios extends HttpServlet {
         }
 
         int id = Integer.parseInt(req.getParameter("id"));
-        empleados = Almacen.empleados;
-        session.setAttribute("Empleado", empleados);
+             session.setAttribute("Empleado", empleados);
 
-        Empleado e1 = Empleado.buscarEmpleadoPorId(Almacen.empleados, id);
+        Empleado e1 = Empleado.buscarEmpleadoPorId(empleados, id);
         String mensaje;
         
         if (e1 == null) {
@@ -63,10 +62,21 @@ public class BorrarUsuarios extends HttpServlet {
             view.forward(req, resp);
 
         } else {
+            req.setAttribute("empleadob", e1);
             RequestDispatcher view = req.getRequestDispatcher("datosborrarusuario.jsp");
             view.forward(req, resp);
-            req.setAttribute("empleadob", e1);
+           
+            
+            
+            if (!req.getAttribute("borrar").equals(null)){
+                System.out.println("I got it");
+            
+            }
+          
         }
+        
+        
+        
     }
 
 }

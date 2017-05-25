@@ -59,3 +59,21 @@ form input[type="submit"]:hover{
     cursor: pointer;
 }
 
+form title {
+    background: darkorange;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    color:#444;
+    background: darkorange;
+    background-color:transparent;
+    border-bottom:1px solid #D0D0D0;
+    font-size:14px;
+    font-weight:400;
+    margin:0 0 14px;
+    padding:14px 15px 10px;
+    alignment-adjust: central;
+    font-family: Arial, Helvetica, sans-serif;
+        
+}

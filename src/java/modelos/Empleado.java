@@ -27,7 +27,7 @@ public class Empleado {
     }
 
     public Empleado(int ident, String nombre, String apellido, int numElementPres, 
-            String roll, String email) {
+        String roll, String email) {
         setIdent(ident);
         setNombre(nombre);
         setApellido(apellido);
